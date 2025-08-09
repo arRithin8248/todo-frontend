@@ -13,9 +13,14 @@ export default function Todo() {
 
     // Local backend URL
     // api.js
-const API = process.env.REACT_APP_API_URL;
-fetch(`${API}/api/ping`).then(r => r.json()).then(console.log);
+const apiUrl = process.env.REACT_APP_API_URL;
 
+useEffect(() => {
+  fetch(`${apiUrl}/api/ping`)
+    .then((r) => r.json())
+    .then(console.log)
+    .catch(console.error);
+}, []);
 
     const handleSubmit = () => {
         setError("");
