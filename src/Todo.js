@@ -12,7 +12,10 @@ export default function Todo() {
     const [editDescription, setEditDescription] = useState("");
 
     // Local backend URL
-    const apiUrl = "http://localhost:8000";
+    // api.js
+const API = process.env.REACT_APP_API_URL;
+fetch(`${API}/api/ping`).then(r => r.json()).then(console.log);
+
 
     const handleSubmit = () => {
         setError("");
